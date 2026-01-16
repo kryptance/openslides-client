@@ -41,6 +41,7 @@ export class MotionState extends BaseModel<MotionState> {
     public allow_motion_forwarding!: boolean;
     public allow_amendment_forwarding: boolean;
     public set_workflow_timestamp!: boolean;
+    public publish_to_archive!: boolean;
     public set_number!: boolean;
     public show_state_extension_field!: boolean;
     public merge_amendment_into_final!: MergeAmendment;
@@ -78,6 +79,7 @@ export class MotionState extends BaseModel<MotionState> {
         `allow_motion_forwarding`,
         `allow_amendment_forwarding`,
         `set_workflow_timestamp`,
+        `publish_to_archive`,
         `state_button_label`,
         `submitter_withdraw_state_id`,
         `submitter_withdraw_back_ids`,

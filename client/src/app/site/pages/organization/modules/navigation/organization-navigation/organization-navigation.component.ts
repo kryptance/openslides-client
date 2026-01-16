@@ -35,6 +35,12 @@ export class OrganizationNavigationComponent {
             weight: 150
         },
         {
+            route: `/decision-archive`,
+            displayName: `Decision archive`,
+            icon: `gavel`,
+            weight: 175
+        },
+        {
             route: `/committees`,
             displayName: `Committees`,
             icon: `layers`,

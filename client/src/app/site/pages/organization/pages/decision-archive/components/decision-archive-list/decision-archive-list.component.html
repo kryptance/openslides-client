@@ -1,0 +1,100 @@
+<os-head-bar>
+    <div class="title-slot">
+        <h2>{{ 'Decision archive' | translate }}</h2>
+    </div>
+</os-head-bar>
+
+<div class="archive-container">
+    <!-- Filter -->
+    <div class="filter-section">
+        <mat-form-field appearance="outline">
+            <mat-label>{{ 'Filter by meeting' | translate }}</mat-label>
+            <mat-select [(value)]="selectedMeetingId" (selectionChange)="onMeetingFilterChange()">
+                <mat-option [value]="null">{{ 'All meetings' | translate }}</mat-option>
+                @for (meeting of meetings; track meeting.id) {
+                    <mat-option [value]="meeting.id">
+                        {{ meeting.name }}
+                        @if (meeting.committee_name) {
+                            <span class="committee-name"> ({{ meeting.committee_name }})</span>
+                        }
+                    </mat-option>
+                }
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    @if (isLoading) {
+        <div class="loading-container">
+            <p>{{ 'Loading...' | translate }}</p>
+        </div>
+    } @else if (motions.length === 0) {
+        <div class="empty-state">
+            <mat-icon>gavel</mat-icon>
+            <h3>{{ 'No archived decisions found' | translate }}</h3>
+            <p>{{ 'Decisions will appear here when meetings are configured to publish to the archive.' | translate }}</p>
+        </div>
+    } @else {
+        <!-- Grouped by Meeting -->
+        @for (entry of groupedByMeeting | keyvalue; track entry.key) {
+            <mat-expansion-panel class="meeting-panel" [expanded]="groupedByMeeting.size === 1">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <div class="meeting-header">
+                            <mat-icon>event</mat-icon>
+                            <span class="meeting-name">{{ getMeetingName(entry.key) }}</span>
+                            @if (getCommitteeName(entry.key)) {
+                                <span class="committee-badge">{{ getCommitteeName(entry.key) }}</span>
+                            }
+                            <span class="motion-count">({{ entry.value.length }} {{ 'decisions' | translate }})</span>
+                        </div>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <div class="motions-list">
+                    @for (motion of entry.value; track motion.id) {
+                        <mat-card class="motion-card">
+                            <mat-card-header>
+                                <mat-card-title>
+                                    @if (motion.number) {
+                                        <span class="motion-number">{{ motion.number }}</span>
+                                    }
+                                    {{ motion.title }}
+                                </mat-card-title>
+                                <mat-card-subtitle>
+                                    <span class="state-badge">{{ motion.state_name }}</span>
+                                    @if (motion.category_name) {
+                                        <span class="category">
+                                            @if (motion.category_prefix) {
+                                                {{ motion.category_prefix }} -
+                                            }
+                                            {{ motion.category_name }}
+                                        </span>
+                                    }
+                                    @if (motion.workflow_timestamp) {
+                                        <span class="date">{{ formatDate(motion.workflow_timestamp) }}</span>
+                                    }
+                                </mat-card-subtitle>
+                            </mat-card-header>
+                            @if (motion.text) {
+                                <mat-card-content>
+                                    <div class="motion-text" [innerHTML]="motion.text"></div>
+                                </mat-card-content>
+                            }
+                        </mat-card>
+                    }
+                </div>
+            </mat-expansion-panel>
+        }
+
+        <!-- Pagination -->
+        @if (totalCount > pageSize) {
+            <mat-paginator
+                [length]="totalCount"
+                [pageSize]="pageSize"
+                [pageIndex]="pageIndex"
+                [pageSizeOptions]="[10, 20, 50, 100]"
+                (page)="onPageChange($event)">
+            </mat-paginator>
+        }
+    }
+</div>

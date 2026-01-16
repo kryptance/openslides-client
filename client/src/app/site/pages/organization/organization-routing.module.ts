@@ -24,6 +24,12 @@ const routes: Routes = [
                 canLoad: [PermissionGuard]
             },
             {
+                path: `decision-archive`,
+                loadChildren: () =>
+                    import(`./pages/decision-archive/decision-archive.module`).then(m => m.DecisionArchiveModule),
+                canLoad: [PermissionGuard]
+            },
+            {
                 path: `committees`,
                 loadChildren: () => import(`./pages/committees/committees.module`).then(m => m.CommitteesModule),
                 canLoad: [PermissionGuard]

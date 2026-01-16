@@ -1,0 +1,154 @@
+.archive-container {
+    padding: 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.filter-section {
+    margin-bottom: 24px;
+
+    mat-form-field {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .committee-name {
+        color: var(--os-hint-color);
+        font-size: 0.9em;
+    }
+}
+
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+}
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    text-align: center;
+    color: var(--os-hint-color);
+
+    mat-icon {
+        font-size: 64px;
+        width: 64px;
+        height: 64px;
+        margin-bottom: 16px;
+        opacity: 0.5;
+    }
+
+    h3 {
+        margin: 0 0 8px 0;
+    }
+
+    p {
+        margin: 0;
+        max-width: 400px;
+    }
+}
+
+.meeting-panel {
+    margin-bottom: 16px;
+}
+
+.meeting-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    mat-icon {
+        color: var(--os-primary);
+    }
+
+    .meeting-name {
+        font-weight: 500;
+    }
+
+    .committee-badge {
+        background-color: var(--os-primary-light);
+        color: var(--os-primary);
+        padding: 2px 8px;
+        border-radius: 12px;
+        font-size: 0.85em;
+    }
+
+    .motion-count {
+        color: var(--os-hint-color);
+        font-size: 0.9em;
+    }
+}
+
+.motions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 8px 0;
+}
+
+.motion-card {
+    mat-card-header {
+        margin-bottom: 8px;
+    }
+
+    mat-card-title {
+        font-size: 1.1em;
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+    }
+
+    .motion-number {
+        font-weight: 600;
+        color: var(--os-primary);
+    }
+
+    mat-card-subtitle {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .state-badge {
+        background-color: var(--os-success-light);
+        color: var(--os-success);
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 0.85em;
+        font-weight: 500;
+    }
+
+    .category {
+        color: var(--os-hint-color);
+    }
+
+    .date {
+        color: var(--os-hint-color);
+        font-size: 0.9em;
+    }
+
+    .motion-text {
+        max-height: 200px;
+        overflow: hidden;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: linear-gradient(transparent, var(--os-card-background));
+        }
+    }
+}
+
+mat-paginator {
+    margin-top: 24px;
+}

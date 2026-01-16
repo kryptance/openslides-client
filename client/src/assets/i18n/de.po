@@ -6690,3 +6690,33 @@ msgstr "eingereicht"
 
 msgid "withdrawn"
 msgstr "zurückgezogen"
+
+msgid "Decision archive"
+msgstr "Beschlussarchiv"
+
+msgid "No archived decisions found"
+msgstr "Keine archivierten Beschlüsse gefunden"
+
+msgid "Decisions will appear here when meetings are configured to publish to the archive."
+msgstr "Beschlüsse erscheinen hier, wenn Sitzungen für die Veröffentlichung im Archiv konfiguriert sind."
+
+msgid "decisions"
+msgstr "Beschlüsse"
+
+msgid "Filter by meeting"
+msgstr "Nach Sitzung filtern"
+
+msgid "All meetings"
+msgstr "Alle Sitzungen"
+
+msgid "Publish decisions to archive"
+msgstr "Beschlüsse im Archiv veröffentlichen"
+
+msgid "When enabled, archived decisions from this meeting are visible to all logged-in users in the organization-wide decision archive."
+msgstr "Wenn aktiviert, sind archivierte Beschlüsse dieser Sitzung für alle angemeldeten Benutzer im organisationsweiten Beschlussarchiv sichtbar."
+
+msgid "Publish to decision archive"
+msgstr "Im Beschlussarchiv veröffentlichen"
+
+msgid "When enabled, motions in this state will be visible to all logged-in users in the organization-wide decision archive. The meeting must also have 'Publish decisions to archive' enabled."
+msgstr "Wenn aktiviert, sind Anträge in diesem Status für alle angemeldeten Benutzer im organisationsweiten Beschlussarchiv sichtbar. Die Sitzung muss auch 'Beschlüsse im Archiv veröffentlichen' aktiviert haben."

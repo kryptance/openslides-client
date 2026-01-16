@@ -224,6 +224,14 @@ Prerequisites:
             type: `check`
         },
         {
+            name: _(`Publish to decision archive`),
+            help_text: _(
+                `When enabled, motions in this state will be visible to all logged-in users in the organization-wide decision archive. The meeting must also have 'Publish decisions to archive' enabled.`
+            ),
+            selector: `publish_to_archive`,
+            type: `check`
+        },
+        {
             name: _(`Show state extension field`),
             help_text: _(
                 `Activates the extension field for the selected state, which can be filled with free text as desired.

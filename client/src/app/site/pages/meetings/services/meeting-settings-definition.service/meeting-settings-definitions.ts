@@ -218,6 +218,14 @@ export const meetingSettings: SettingsGroup[] = fillInSettingsDefaults([
                             `Note: The public access setting is deactivated for the organization. Please contact your admins or hosting providers to activate the setting.`
                         ),
                         warn: orgaSettings => !orgaSettings.instant(`enable_anonymous`)
+                    },
+                    {
+                        key: `enable_decision_archive`,
+                        label: _(`Publish decisions to archive`),
+                        type: `boolean`,
+                        helpText: _(
+                            `When enabled, archived decisions from this meeting are visible to all logged-in users in the organization-wide decision archive.`
+                        )
                     }
                 ]
             },
